@@ -1,87 +1,138 @@
 "use client";
 
 import Link from "next/link";
-import { Globe, Mail, MessageCircle, Briefcase } from "lucide-react";
+import Image from "next/image";
+import { Globe, Mail, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { subscribeNewsletter } from "@/lib/api";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [newsletterMsg, setNewsletterMsg] = useState("");
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setNewsletterStatus("submitting");
+    try {
+      const result = await subscribeNewsletter(email);
+      setNewsletterMsg(result.message);
+      setNewsletterStatus("success");
+      setEmail("");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Subscription failed.";
+      setNewsletterMsg(errorMessage);
+      setNewsletterStatus("error");
+    }
+  };
+
   return (
-    <footer className="border-t border-white/10 bg-background pt-16 pb-8">
+    <footer className="border-t border-border bg-background pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:gap-12">
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold tracking-tight text-white">Awak Innovations</span>
+              <div className="relative h-12 w-40 overflow-hidden">
+                <Image
+                  src="/logo.png"
+                  alt="Awak Innovations Logo"
+                  fill
+                  sizes="160px"
+                  className="object-contain object-left"
+                />
+              </div>
             </Link>
-            <p className="text-muted-foreground">
-              A forward-thinking digital agency specializing in cutting-edge web development, creative design, and intelligent data-driven solutions.
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              A forward-thinking software house specializing in AI, web, mobile, and cloud solutions for startups, SMEs, and enterprises.
             </p>
             <div className="flex items-center gap-4 mt-2">
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Globe className="h-5 w-5" />
+              <Link href="https://linkedin.com/company/awakinnovations" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+                <ExternalLink className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://twitter.com/awakinnovations" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Twitter/X">
+                <ExternalLink className="h-5 w-5" />
+              </Link>
+              <Link href="mailto:hello@awakinnovations.com" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <MessageCircle className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Briefcase className="h-5 w-5" />
+              <Link href="/" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Website">
+                <Globe className="h-5 w-5" />
               </Link>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
-            <nav className="flex flex-col gap-2">
-              <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
-              <Link href="/portfolio" className="text-muted-foreground hover:text-primary transition-colors">Portfolio</Link>
-              <Link href="/careers" className="text-muted-foreground hover:text-primary transition-colors">Careers</Link>
-              <Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link>
-              <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
-            </nav>
+          <div className="flex flex-col gap-8">
+            <div>
+              <h4 className="font-semibold mb-4 text-foreground">Company</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link href="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
+                <li><Link href="/process" className="hover:text-primary transition-colors">Process</Link></li>
+                <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link></li>
+                <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
+                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Services */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-semibold text-white">Services</h3>
-            <nav className="flex flex-col gap-2">
-              <Link href="/services/web-development" className="text-muted-foreground hover:text-primary transition-colors">Web Development</Link>
-              <Link href="/services/ai-automation" className="text-muted-foreground hover:text-primary transition-colors">AI & Automation</Link>
-              <Link href="/services/mobile-development" className="text-muted-foreground hover:text-primary transition-colors">Mobile Apps</Link>
-              <Link href="/services/ui-ux-design" className="text-muted-foreground hover:text-primary transition-colors">UI/UX Design</Link>
-              <Link href="/services/data-analytics" className="text-muted-foreground hover:text-primary transition-colors">Data Analytics</Link>
-            </nav>
+            <h4 className="font-semibold text-foreground">Services</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><Link href="/services" className="hover:text-primary transition-colors">AI Development</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Web Development</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Mobile Apps</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Cloud & DevOps</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">UI/UX Design</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Data & Analytics</Link></li>
+            </ul>
           </div>
 
           {/* Newsletter */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-semibold text-white">Newsletter</h3>
-            <p className="text-muted-foreground">Subscribe to our newsletter for the latest updates and insights.</p>
-            <form className="flex mt-2" onSubmit={(e) => e.preventDefault()}>
+            <h4 className="font-semibold text-foreground">Newsletter</h4>
+            <p className="text-muted-foreground text-sm">Subscribe for the latest insights on AI, engineering, and digital transformation.</p>
+            <form className="flex mt-2" onSubmit={handleNewsletterSubmit}>
               <input
                 type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full rounded-l-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full rounded-l-md border border-border bg-background px-4 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
               <button
                 type="submit"
-                className="rounded-r-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                disabled={newsletterStatus === "submitting"}
+                className="rounded-r-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-colors whitespace-nowrap"
               >
-                Subscribe
+                {newsletterStatus === "submitting" ? "..." : "Subscribe"}
               </button>
             </form>
+            {newsletterMsg && (
+              <p className={`text-xs mt-1 ${newsletterStatus === "success" ? "text-green-600" : "text-red-500"}`}>
+                {newsletterMsg}
+              </p>
+            )}
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between border-t border-border pt-8 sm:flex-row">
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Awak Innovations. All rights reserved.
           </p>
           <div className="mt-4 flex gap-4 sm:mt-0">
-            <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">

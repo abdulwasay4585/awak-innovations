@@ -35,3 +35,7 @@ pnpm-debug.log*
 
 # Misc
 .vercel
+
+# Generated Content
+content/
+!content/README.md

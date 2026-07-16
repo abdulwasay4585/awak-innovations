@@ -26,19 +26,21 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/60 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-10 w-10 overflow-hidden rounded-md">
-            <Image
-              src="/logo.png"
-              alt="Awak Innovations Logo"
-              fill
-              className="object-contain"
-              priority
-            />
+        <Link href="/" className="flex items-center">
+          <div className="relative h-12 w-40 overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-full">
+              <Image
+                src="/logo.png"
+                alt="Awak Innovations Logo"
+                fill
+                sizes="160px"
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
-          <span className="text-xl font-bold tracking-tight">Awak Innovations</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -47,11 +49,9 @@ export function Navbar() {
             <NavigationMenuList className="gap-2">
               {links.map((link) => (
                 <NavigationMenuItem key={link.name}>
-                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href={link.href}>
-                      {link.name}
-                    </Link>
-                  </NavigationMenuLink>
+                  <Link href={link.href} className={navigationMenuTriggerStyle()}>
+                    {link.name}
+                  </Link>
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -59,10 +59,12 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
-            Free Consultation
+          <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+            <Link href="/contact">Free Consultation</Link>
           </Button>
-          <Button>Get a Quote</Button>
+          <Button asChild>
+            <Link href="/contact">Get a Quote</Link>
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -72,7 +74,7 @@ export function Navbar() {
               <Menu className="h-6 w-6" />
               <span className="sr-only">Toggle Menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-background/95 backdrop-blur-xl border-white/10">
+            <SheetContent side="right" className="bg-background/95 backdrop-blur-xl border-border">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <div className="flex flex-col gap-6 mt-10">
                 {links.map((link) => (
@@ -86,10 +88,12 @@ export function Navbar() {
                   </Link>
                 ))}
                 <div className="flex flex-col gap-3 mt-4">
-                  <Button variant="outline" className="w-full border-primary/50 text-primary">
-                    Free Consultation
+                  <Button asChild variant="outline" className="w-full border-primary/50 text-primary" onClick={() => setIsOpen(false)}>
+                    <Link href="/contact">Free Consultation</Link>
                   </Button>
-                  <Button className="w-full">Get a Quote</Button>
+                  <Button asChild className="w-full" onClick={() => setIsOpen(false)}>
+                    <Link href="/contact">Get a Quote</Link>
+                  </Button>
                 </div>
               </div>
             </SheetContent>
