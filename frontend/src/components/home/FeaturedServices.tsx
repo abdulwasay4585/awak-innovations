@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Bot, Code2, Globe, Cloud, ArrowRight } from "lucide-react";
+import { Bot, Code2, Globe, Cloud, ArrowRight, Smartphone, PenTool } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -21,6 +21,16 @@ export function FeaturedServices() {
       title: "Headless E-Commerce",
       description: "Lightning-fast, highly responsive web applications using serverless architectures.",
       icon: <Globe className="w-6 h-6 text-primary" />
+    },
+    {
+      title: "Mobile App Development",
+      description: "Native and cross-platform mobile experiences that engage users on iOS and Android.",
+      icon: <Smartphone className="w-6 h-6 text-primary" />
+    },
+    {
+      title: "UI/UX Design",
+      description: "User-centric interfaces and intuitive experiences that elevate your digital brand.",
+      icon: <PenTool className="w-6 h-6 text-primary" />
     },
     {
       title: "Cloud & DevOps",
