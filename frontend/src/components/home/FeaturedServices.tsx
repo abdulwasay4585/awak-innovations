@@ -35,8 +35,7 @@ export function FeaturedServices() {
     {
       title: "Cloud & DevOps",
       description: "Resilient, auto-scaling cloud environments with robust CI/CD pipelines.",
-      icon: <Cloud className="w-6 h-6 text-primary" />,
-      features: ["Kubernetes Scaling", "Automated CI/CD", "Cloud Infrastructure"]
+      icon: <Cloud className="w-6 h-6 text-primary" />
     }
   ];
 
