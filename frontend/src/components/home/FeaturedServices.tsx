@@ -75,15 +75,6 @@ export function FeaturedServices() {
               <p className="text-muted-foreground mb-6 md:mb-8 leading-relaxed text-sm md:text-base">
                 {service.description}
               </p>
-              
-              <ul className="space-y-3">
-                {service.features?.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-center text-sm text-foreground/90 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3 shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
             </motion.div>
           ))}
         </div>
