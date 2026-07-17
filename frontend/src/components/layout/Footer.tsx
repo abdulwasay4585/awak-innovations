@@ -30,9 +30,9 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-background pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:gap-12">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
           {/* Brand */}
-          <div className="flex flex-col gap-4">
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
               <div className="relative h-12 w-40 overflow-hidden">
                 <Image
@@ -99,22 +99,22 @@ export function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="flex flex-col gap-4">
+          <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
             <h4 className="font-semibold text-foreground">Newsletter</h4>
             <p className="text-muted-foreground text-sm">Subscribe for the latest insights on AI, engineering, and digital transformation.</p>
-            <form className="flex mt-2" onSubmit={handleNewsletterSubmit}>
+            <form className="flex flex-col sm:flex-row gap-2 mt-2" onSubmit={handleNewsletterSubmit}>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full rounded-l-md border border-border bg-background px-4 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full rounded-md sm:rounded-l-md sm:rounded-r-none border border-border bg-background px-4 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
               <button
                 type="submit"
                 disabled={newsletterStatus === "submitting"}
-                className="rounded-r-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-colors whitespace-nowrap"
+                className="rounded-md sm:rounded-l-none sm:rounded-r-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-colors whitespace-nowrap"
               >
                 {newsletterStatus === "submitting" ? "..." : "Subscribe"}
               </button>

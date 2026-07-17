@@ -29,18 +29,18 @@ export function PortfolioPreview() {
   ];
 
   return (
-    <section className="py-32 bg-muted/30">
+    <section className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
             Recent Deployments
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base md:text-lg">
             Explore our latest enterprise implementations, from complex cloud migrations to seamless web applications.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
@@ -50,37 +50,37 @@ export function PortfolioPreview() {
               transition={{ delay: idx * 0.1 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 bg-card border border-border shadow-sm">
+              <div className="relative aspect-video rounded-2xl md:rounded-3xl overflow-hidden mb-4 md:mb-6 bg-card border border-border shadow-sm">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-60" />
               </div>
               
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-3 md:mb-4">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none">
+                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 border-none text-xs">
                     {tag}
                   </Badge>
                 ))}
               </div>
               
-              <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground text-sm md:text-base">
                 {project.category}
               </p>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <Button asChild size="lg" variant="outline" className="border-border bg-background hover:bg-muted h-14 px-8 text-base shadow-sm">
+        <div className="mt-12 md:mt-16 text-center">
+          <Button asChild size="lg" variant="outline" className="border-border bg-background hover:bg-muted h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base shadow-sm w-full sm:w-auto">
             <Link href="/portfolio">View Full Portfolio</Link>
           </Button>
         </div>

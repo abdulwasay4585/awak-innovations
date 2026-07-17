@@ -59,11 +59,8 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button asChild variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
-            <Link href="/contact">Free Consultation</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/contact">Get a Quote</Link>
+          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20 transition-all hover:scale-105">
+            <Link href="/contact">Let&apos;s Build Together</Link>
           </Button>
         </div>
 
@@ -88,11 +85,8 @@ export function Navbar() {
                   </Link>
                 ))}
                 <div className="flex flex-col gap-3 mt-4">
-                  <Button asChild variant="outline" className="w-full border-primary/50 text-primary" onClick={() => setIsOpen(false)}>
-                    <Link href="/contact">Free Consultation</Link>
-                  </Button>
-                  <Button asChild className="w-full" onClick={() => setIsOpen(false)}>
-                    <Link href="/contact">Get a Quote</Link>
+                  <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => setIsOpen(false)}>
+                    <Link href="/contact">Let&apos;s Build Together</Link>
                   </Button>
                 </div>
               </div>

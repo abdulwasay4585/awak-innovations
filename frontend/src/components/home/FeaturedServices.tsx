@@ -31,23 +31,23 @@ export function FeaturedServices() {
   ];
 
   return (
-    <section className="py-32 bg-background">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div className="mb-12 md:mb-24 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Engineering Excellence Across Domains.
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-base md:text-lg">
               We leverage the latest technologies to build scalable, secure, and performant solutions tailored to your unique business needs.
             </p>
           </div>
-          <Button asChild variant="outline" className="shrink-0 border-border bg-background hover:bg-muted">
+          <Button asChild variant="outline" className="shrink-0 border-border bg-background hover:bg-muted w-full sm:w-auto">
             <Link href="/services">Explore All Services <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -55,22 +55,22 @@ export function FeaturedServices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+              className="group relative p-6 md:p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
             >
-              <div className="mb-6 inline-flex p-4 rounded-2xl bg-primary/10 text-primary">
+              <div className="mb-5 inline-flex p-4 rounded-2xl bg-primary/10 text-primary">
                 {service.icon}
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 md:mb-4 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-muted-foreground mb-6 md:mb-8 leading-relaxed text-sm md:text-base">
                 {service.description}
               </p>
               
               <ul className="space-y-3">
                 {service.features?.map((feature, fIdx) => (
                   <li key={fIdx} className="flex items-center text-sm text-foreground/90 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3 shrink-0" />
                     {feature}
                   </li>
                 ))}
