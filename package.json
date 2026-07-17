@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "install:all": "npm install --include=dev --prefix backend && npm install --include=dev --prefix frontend",
     "build:all": "npm run build --prefix backend && npm run build --prefix frontend",
     "start": "npx concurrently \"PORT=5000 npm start --prefix backend\" \"npm start --prefix frontend\"",
     "dev": "npx concurrently \"PORT=5000 npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
