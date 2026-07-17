@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "AWAK Innovations | Digital Agency",
   description: "AWAK Innovations is a forward-thinking digital agency specializing in cutting-edge web development, creative design, and intelligent data-driven solutions.",
+  verification: {
+    google: "qf_M9qGR6-FJT9KlYgYKUfhbMZ83db26ORw1UBEShZQ",
+  },
 };
 
 export default function RootLayout({
