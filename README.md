@@ -1,4 +1,4 @@
-# Awak Innovations
+# AWAK Innovations
 
 Premium, modern, and conversion-focused web application for **Awak Innovations** — a digital agency and software house specializing in AI, web, mobile, cloud solutions, and enterprise software.
 
