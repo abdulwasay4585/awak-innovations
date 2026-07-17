@@ -37,16 +37,21 @@ export function Footer() {
               <div className="relative h-12 w-40 overflow-hidden">
                 <Image
                   src="/logo.png"
-                  alt="Awak Innovations Logo"
+                  alt="AWAK Innovations Logo"
                   fill
                   sizes="160px"
                   className="object-contain object-left"
                 />
               </div>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              A forward-thinking software house specializing in AI, web, mobile, and cloud solutions for startups, SMEs, and enterprises.
-            </p>
+            <div className="text-muted-foreground text-sm leading-relaxed space-y-4">
+              <p>
+                AWAK Innovations is a forward-thinking digital agency specializing in cutting-edge web development, creative design, and intelligent data-driven solutions. Built at the intersection of technology and innovation, we help startups, businesses, and enterprises transform their digital presence with custom-built websites, scalable AI models, and impactful data science strategies.
+              </p>
+              <p>
+                With a core focus on simplicity, efficiency, and user-first experiences, our team of developers, designers, and AI engineers deliver tailored solutions that push boundaries and exceed expectations. Whether you're launching a new idea or optimizing existing platforms, AWAK Innovations brings the tools, talent, and technology to turn vision into reality.
+              </p>
+            </div>
             <div className="flex items-center gap-4 mt-2">
               <Link href="https://linkedin.com/company/awakinnovations" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
                 <ExternalLink className="h-5 w-5" />
@@ -129,7 +134,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-center justify-between border-t border-border pt-8 sm:flex-row">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Awak Innovations. All rights reserved.
+            &copy; {new Date().getFullYear()} AWAK Innovations. All rights reserved.
           </p>
           <div className="mt-4 flex gap-4 sm:mt-0">
             <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">

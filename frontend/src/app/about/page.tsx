@@ -34,7 +34,7 @@ export default function AboutPage() {
   ];
 
   const timeline = [
-    { year: "2026", title: "Founded", desc: "Awak Innovations launched with a mission to modernize enterprise software delivery." },
+    { year: "2026", title: "Founded", desc: "AWAK Innovations launched with a mission to modernize enterprise software delivery." },
     { year: "2027", title: "AI Expansion", desc: "Scaled our AI engineering practice to help clients integrate LLMs into production workflows." },
     { year: "2028", title: "Global Reach", desc: "Expanded operations to support distributed teams across North America and Europe." }
   ];

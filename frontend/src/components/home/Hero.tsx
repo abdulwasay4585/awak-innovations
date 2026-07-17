@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-10 md:mb-12 max-w-2xl text-base sm:text-lg text-muted-foreground md:text-xl px-2"
           >
-            We are a forward-thinking digital agency specializing in cutting-edge web development, creative design, and intelligent data-driven solutions.
+            AWAK Innovations is a forward-thinking digital agency specializing in cutting-edge web development, creative design, and intelligent data-driven solutions. Built at the intersection of technology and innovation, we help startups, businesses, and enterprises transform their digital presence with custom-built websites, scalable AI models, and impactful data science strategies.
           </motion.p>
 
           <motion.div

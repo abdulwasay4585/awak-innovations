@@ -65,7 +65,7 @@ export default function FAQPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-muted-foreground">
-            Clear, honest answers about how we work, what we charge, and what you can expect when partnering with Awak Innovations.
+            Clear, honest answers about how we work, what we charge, and what you can expect when partnering with AWAK Innovations.
           </p>
         </div>
 

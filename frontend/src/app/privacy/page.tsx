@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
           <div className="text-muted-foreground space-y-6">
             <p><strong>Effective Date:</strong> January 1, 2026</p>
             
-            <p>Awak Innovations ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by Awak Innovations.</p>
+            <p>AWAK Innovations ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by AWAK Innovations.</p>
 
             <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">1. Information We Collect</h2>
             <p>We collect information you provide directly to us when you request a consultation, subscribe to our newsletter, or communicate with us. This may include:</p>

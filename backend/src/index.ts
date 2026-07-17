@@ -17,7 +17,7 @@ app.use(express.json());
 
 // ── Health Check ─────────────────────────────────────────────────
 app.get('/', (_req: Request, res: Response) => {
-  res.json({ status: 'ok', message: 'Awak Innovations API is running' });
+  res.json({ status: 'ok', message: 'AWAK Innovations API is running' });
 });
 
 // ── Contact Form ─────────────────────────────────────────────────

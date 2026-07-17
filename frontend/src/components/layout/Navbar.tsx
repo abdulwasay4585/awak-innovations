@@ -33,7 +33,7 @@ export function Navbar() {
             <div className="relative w-full h-full">
               <Image
                 src="/logo.png"
-                alt="Awak Innovations Logo"
+                alt="AWAK Innovations Logo"
                 fill
                 sizes="160px"
                 className="object-contain"
